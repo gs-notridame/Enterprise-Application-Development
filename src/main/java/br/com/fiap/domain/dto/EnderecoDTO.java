@@ -19,7 +19,7 @@ public record EnderecoDTO(
 
     public static Endereco of(EnderecoDTO e) {
         Endereco endereco = service.findByCEP( e.cep );
-        endereco.setComplemento( e.complemento ).setNumero( e.numero );
+        endereco.setComplemento( .complemento ).setNumero( e.numero );
         var p = PessoaDTO.of( e.pessoa );
         endereco.setPessoa( p );
         return endereco;
