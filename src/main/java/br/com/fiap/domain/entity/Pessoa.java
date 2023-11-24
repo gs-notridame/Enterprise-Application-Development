@@ -17,10 +17,6 @@ public class Pessoa {
     private String email;
     @Column(name = "SOFT_DELETE")
     private Boolean softDelete;
-    @Column(name = "CPF")
-    private BigDecimal cpf;
-    @Column(name = "DATA_NASC")
-    private String dataNasc;
     @Column(name = "USUARIO")
     private String usuario;
     @Column(name = "SENHA")
@@ -29,13 +25,11 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(BigDecimal codPessoa, String nome, String email, Boolean softDelete, BigDecimal cpf, String dataNasc, String usuario, String senha) {
+    public Pessoa(BigDecimal codPessoa, String nome, String email, Boolean softDelete, String usuario, String senha) {
         this.codPessoa = codPessoa;
         this.nome = nome;
         this.email = email;
         this.softDelete = softDelete;
-        this.cpf = cpf;
-        this.dataNasc = dataNasc;
         this.usuario = usuario;
         this.senha = senha;
     }
@@ -76,24 +70,6 @@ public class Pessoa {
         return this;
     }
 
-    public BigDecimal getCpf() {
-        return cpf;
-    }
-
-    public Pessoa setCpf(BigDecimal cpf) {
-        this.cpf = cpf;
-        return this;
-    }
-
-    public String getDataNasc() {
-        return dataNasc;
-    }
-
-    public Pessoa setDataNasc(String dataNasc) {
-        this.dataNasc = dataNasc;
-        return this;
-    }
-
     public String getUsuario() {
         return usuario;
     }
@@ -119,8 +95,6 @@ public class Pessoa {
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", softDelete=" + softDelete +
-                ", cpf=" + cpf +
-                ", dataNasc='" + dataNasc + '\'' +
                 ", usuario='" + usuario + '\'' +
                 ", senha='" + senha + '\'' +
                 '}';
