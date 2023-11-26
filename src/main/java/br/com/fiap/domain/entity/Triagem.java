@@ -8,6 +8,14 @@ import java.util.Date;
 @Entity
 @Table(name = "TB_TRIAGEM")
 public class Triagem {
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(
+            name = "PACIENTE",
+            referencedColumnName = "COD_PACIENTE",
+            foreignKey = @ForeignKey(name = "FK_TRIAGEM_PACIENTE")
+    )
+    private Paciente paciente;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_TRIAGEM")
     @SequenceGenerator(name = "SQ_TRIAGEM", sequenceName = "SQ_TRIAGEM", allocationSize = 1, initialValue = 1)

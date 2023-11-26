@@ -1,12 +1,14 @@
 package br.com.fiap.domain.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.util.Date;
 import java.math.BigDecimal;
 @Entity
-@Table(name = "TB_PESSOA_FISICA")
+@Table(name = "TB_PF", uniqueConstraints = {
+        @UniqueConstraint( name = "UK_PF_CPF", columnNames = "NR_CPF")
+})
+@DiscriminatorValue("PF")
 public class pessoaFisica extends Pessoa {
     @Column(name = "DATA_NASC")
     private Date dataNasc;

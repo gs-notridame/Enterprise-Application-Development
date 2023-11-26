@@ -7,6 +7,14 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "TB_RECOMENDACAO")
 public class Recomendacao {
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(
+            name = "DIAGNOSTICO",
+            referencedColumnName = "COD_DIAGNOSTICO",
+            foreignKey = @ForeignKey(name = "FK_RECOMENDACAO_DIAGNOSTICO")
+    )
+    private Diagnostico diagnostico;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_RECOMENDACAO")
     @SequenceGenerator(name = "SQ_RECOMENDACAO", sequenceName = "SQ_RECOMENDACAO", allocationSize = 1, initialValue = 1)

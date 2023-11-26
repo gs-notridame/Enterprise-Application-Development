@@ -7,6 +7,22 @@ import java.math.BigDecimal;
 @Table(name = "TB_BAIRRO")
 public class Bairro {
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(
+            name = "ENDERECO",
+            referencedColumnName = "COD_ENDERECO",
+            foreignKey = @ForeignKey(name = "FK_BAIRRO_ENDERECP")
+    )
+    private Endereco endereco;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(
+            name = "CIDADE",
+            referencedColumnName = "COD_CIADDE",
+            foreignKey = @ForeignKey(name = "FK_BAIRRO_CIDADE")
+    )
+    private Cidade cidade;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_BAIRRO")
     @SequenceGenerator(name = "SQ_BAIRRO", sequenceName = "SQ_BAIRRO", allocationSize = 1, initialValue = 1)

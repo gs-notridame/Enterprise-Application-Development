@@ -6,6 +6,15 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "TB_ESTADO")
 public class Estado {
+
+   @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+   @JoinColumn(
+           name = "PAIS",
+           referencedColumnName = "COD_PAIS",
+           foreignKey = @ForeignKey(name = "FK_ESTADO_PAIS")
+   )
+   private Pais pais;
+
    @Id
    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ESTADO")
    @SequenceGenerator(name = "SQ_ESTADO", sequenceName = "SQ_ESTADO", allocationSize = 1, initialValue = 1)
