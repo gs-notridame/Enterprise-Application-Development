@@ -8,6 +8,11 @@ import java.util.Date;
 @Entity
 @Table(name = "TB_TRIAGEM")
 public class Triagem {
+
+    @OneToOne
+    @JoinColumn(name = "COD_QUESTIONARIO")
+    private Questionario questionario;
+
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
     @JoinColumn(
             name = "PACIENTE",

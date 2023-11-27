@@ -18,7 +18,7 @@ public class Avaliacao {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_AGENDAMENTO")
     @SequenceGenerator(name = "SQ_AGENDAMENTO", sequenceName = "AGENDAMENTO", allocationSize = 1, initialValue = 1)
-    @Column(name = "COD_AVALIACAO")
+    @Column(name = "COD_AVALIACAO") //LONG
     private BigDecimal codAvaliacao;
     @Column(name = "NOTA")
     private BigDecimal nota;

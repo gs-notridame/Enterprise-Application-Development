@@ -6,6 +6,11 @@ import java.util.Date;
 @Entity
 @Table(name = "TB_DIAGNOSTICO")
 public class Diagnostico {
+
+    @OneToOne
+    @JoinColumn(name = "COD_TRIAGEM")
+    private Triagem triagem;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_DIAGNOSTICO")
     @SequenceGenerator(name = "SQ_DIAGNOSTICO", sequenceName = "SQ_DIAGNOSTICO", allocationSize = 1, initialValue = 1)

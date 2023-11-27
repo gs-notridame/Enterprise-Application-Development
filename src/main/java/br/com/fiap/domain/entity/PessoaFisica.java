@@ -9,27 +9,41 @@ import java.math.BigDecimal;
         @UniqueConstraint( name = "UK_PF_CPF", columnNames = "NR_CPF")
 })
 @DiscriminatorValue("PF")
-public class pessoaFisica extends Pessoa {
+public class PessoaFisica extends Pessoa {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PF")
+    @SequenceGenerator(name = "SQ_PF", sequenceName = "SQ_PF", allocationSize = 1, initialValue = 1)
+    @Column(name = "COD_PF")
+    private Long codPf;
     @Column(name = "DATA_NASC")
     private Date dataNasc;
     @Column(name = "CPF")
     private BigDecimal cpf;
 
-    public pessoaFisica() {
+    public PessoaFisica() {
     }
 
-    public pessoaFisica(BigDecimal codPessoa, String nome, String email,
-                        Boolean softDelete, String usuario, String senha, Date dataNasc, BigDecimal cpf) {
+    public PessoaFisica(BigDecimal codPessoa, String nome, String email, Boolean softDelete, String usuario, String senha, Long codPf, Date dataNasc, BigDecimal cpf) {
         super(codPessoa, nome, email, softDelete, usuario, senha);
+        this.codPf = codPf;
         this.dataNasc = dataNasc;
         this.cpf = cpf;
+    }
+
+    public Long getCodPf() {
+        return codPf;
+    }
+
+    public PessoaFisica setCodPf(Long codPf) {
+        this.codPf = codPf;
+        return this;
     }
 
     public Date getDataNasc() {
         return dataNasc;
     }
 
-    public pessoaFisica setDataNasc(Date dataNasc) {
+    public PessoaFisica setDataNasc(Date dataNasc) {
         this.dataNasc = dataNasc;
         return this;
     }
@@ -38,7 +52,7 @@ public class pessoaFisica extends Pessoa {
         return cpf;
     }
 
-    public pessoaFisica setCpf(BigDecimal cpf) {
+    public PessoaFisica setCpf(BigDecimal cpf) {
         this.cpf = cpf;
         return this;
     }
@@ -46,7 +60,8 @@ public class pessoaFisica extends Pessoa {
     @Override
     public String toString() {
         return "pessoaFisica{" +
-                "dataNasc=" + dataNasc +
+                "codPf=" + codPf +
+                ", dataNasc=" + dataNasc +
                 ", cpf=" + cpf +
                 "} " + super.toString();
     }

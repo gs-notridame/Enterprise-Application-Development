@@ -5,7 +5,14 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 @Entity
 @Table(name = "TB_PESSOA")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "TIPO")
 public class Pessoa {
+
+    @OneToOne
+    @JoinColumn(name = "COD_PF")
+    private PessoaFisica pessoaFisica;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PESSOA")
     @SequenceGenerator(name = "SQ_PESSOA", sequenceName = "SQ_PESSOA", allocationSize = 1, initialValue = 1)

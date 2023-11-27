@@ -6,6 +6,9 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "TB_GENERO")
 public class Genero {
+    @OneToOne
+    @JoinColumn(name = "COD_PESSOA")
+    private  Pessoa pessoa;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_GENERO")
     @SequenceGenerator(name = "SQ_GENERO", sequenceName = "SQ_GENERO", allocationSize = 1, initialValue = 1)

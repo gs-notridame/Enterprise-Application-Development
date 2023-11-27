@@ -8,6 +8,13 @@ import java.sql.Time;
 @Entity
 @Table(name = "TB_AGENDA_MEDICA")
 public class agendaMedica {
+    @OneToOne
+    @JoinColumn(name = "COD_MEDICO")
+    private Medico medico;
+    @OneToOne
+    @JoinColumn(name = "COD_AGENDAMENTO")
+    private Agendamento agendamento;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_AGENDA_MEDICA")
     @SequenceGenerator(name = "SQ_AGENDA_MEDICA", sequenceName = "SQ_AGENDA_MEDICA", allocationSize = 1, initialValue = 1)
