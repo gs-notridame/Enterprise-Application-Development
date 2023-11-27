@@ -19,7 +19,7 @@ public class Telefone {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_TELEFONE")
     @SequenceGenerator(name = "SQ_TELEFONE", sequenceName = "SQ_TELEFONE", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_TELEFONE")
-    private BigDecimal codTelefone;
+    private Long codTelefone;
     @Column(name = "NUMERO")
     private BigDecimal numero;
     @Column(name = "DDD")
@@ -28,17 +28,17 @@ public class Telefone {
     public Telefone() {
     }
 
-    public Telefone(BigDecimal codTelefone, BigDecimal numero, BigDecimal ddd) {
+    public Telefone(Long codTelefone, BigDecimal numero, BigDecimal ddd) {
         this.codTelefone = codTelefone;
         this.numero = numero;
         this.ddd = ddd;
     }
 
-    public BigDecimal getCodTelefone() {
+    public Long getCodTelefone() {
         return codTelefone;
     }
 
-    public Telefone setCodTelefone(BigDecimal codTelefone) {
+    public Telefone setCodTelefone(Long codTelefone) {
         this.codTelefone = codTelefone;
         return this;
     }

@@ -18,24 +18,24 @@ public class Estado {
    @Id
    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ESTADO")
    @SequenceGenerator(name = "SQ_ESTADO", sequenceName = "SQ_ESTADO", allocationSize = 1, initialValue = 1)
-   @Column(name = "COD_BAIRRO")
-   private BigDecimal codEstado;
+   @Column(name = "COD_ESTADO")
+   private Long codEstado;
    @Column(name = "NOME")
    private  String nome;
 
    public Estado() {
    }
 
-   public Estado(BigDecimal codEstado, String nome) {
+   public Estado(Long codEstado, String nome) {
       this.codEstado = codEstado;
       this.nome = nome;
    }
 
-   public BigDecimal getCodEstado() {
+   public Long getCodEstado() {
       return codEstado;
    }
 
-   public Estado setCodEstado(BigDecimal codEstado) {
+   public Estado setCodEstado(Long codEstado) {
       this.codEstado = codEstado;
       return this;
    }

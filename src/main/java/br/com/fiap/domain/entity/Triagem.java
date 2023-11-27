@@ -10,8 +10,9 @@ import java.util.Date;
 public class Triagem {
 
     @OneToOne
-    @JoinColumn(name = "COD_QUESTIONARIO")
+    @JoinColumn(name = "COD_QUESTIONARIO", referencedColumnName = "COD_QUESTIONARIO")
     private Questionario questionario;
+
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
     @JoinColumn(
@@ -25,7 +26,7 @@ public class Triagem {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_TRIAGEM")
     @SequenceGenerator(name = "SQ_TRIAGEM", sequenceName = "SQ_TRIAGEM", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_TRIAGEM")
-    private BigDecimal codTriagem;
+    private Long codTriagem;
     @Column(name = "INICIO")
     private  Date incio;
     @Column(name = "FIM")
@@ -38,7 +39,7 @@ public class Triagem {
     public Triagem() {
     }
 
-    public Triagem(BigDecimal codTriagem, Date incio, Date fim, Time duracao, String respostas) {
+    public Triagem(Long codTriagem, Date incio, Date fim, Time duracao, String respostas) {
         this.codTriagem = codTriagem;
         this.incio = incio;
         this.fim = fim;
@@ -46,11 +47,11 @@ public class Triagem {
         this.respostas = respostas;
     }
 
-    public BigDecimal getCodTriagem() {
+    public Long getCodTriagem() {
         return codTriagem;
     }
 
-    public Triagem setCodTriagem(BigDecimal codTriagem) {
+    public Triagem setCodTriagem(Long codTriagem) {
         this.codTriagem = codTriagem;
         return this;
     }

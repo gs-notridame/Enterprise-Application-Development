@@ -19,7 +19,7 @@ public class agendaMedica {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_AGENDA_MEDICA")
     @SequenceGenerator(name = "SQ_AGENDA_MEDICA", sequenceName = "SQ_AGENDA_MEDICA", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_AGENDA")
-    private BigDecimal codAgenda;
+    private Long codAgenda;
     @Column(name = "DATA_AGENDAMENTO")
     private Date dataAgendamento;
     @Column(name = "HORA_AGENDAMENTO")
@@ -27,24 +27,24 @@ public class agendaMedica {
     @Column(name = "STATUS")
     private String status;
     @Column(name = "OBESERVACOES")
-    private String oberservacoes;
+    private String observacoes;
 
     public agendaMedica() {
     }
 
-    public agendaMedica(BigDecimal codAgenda, Date dataAgendamento, Time horaAgendamento, String status, String oberservacoes) {
+    public agendaMedica(Long codAgenda, Date dataAgendamento, Time horaAgendamento, String status, String observacoes) {
         this.codAgenda = codAgenda;
         this.dataAgendamento = dataAgendamento;
         this.horaAgendamento = horaAgendamento;
         this.status = status;
-        this.oberservacoes = oberservacoes;
+        this.observacoes = observacoes;
     }
 
-    public BigDecimal getCodAgenda() {
+    public Long getCodAgenda() {
         return codAgenda;
     }
 
-    public agendaMedica setCodAgenda(BigDecimal codAgenda) {
+    public agendaMedica setCodAgenda(Long codAgenda) {
         this.codAgenda = codAgenda;
         return this;
     }
@@ -76,12 +76,12 @@ public class agendaMedica {
         return this;
     }
 
-    public String getOberservacoes() {
-        return oberservacoes;
+    public String getObservacoes() {
+        return observacoes;
     }
 
-    public agendaMedica setOberservacoes(String oberservacoes) {
-        this.oberservacoes = oberservacoes;
+    public agendaMedica setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
         return this;
     }
 
@@ -92,7 +92,7 @@ public class agendaMedica {
                 ", dataAgendamento=" + dataAgendamento +
                 ", horaAgendamento=" + horaAgendamento +
                 ", status='" + status + '\'' +
-                ", oberservacoes='" + oberservacoes + '\'' +
+                ", observacoes='" + observacoes + '\'' +
                 '}';
     }
 }

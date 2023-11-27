@@ -9,14 +9,14 @@ public class Pais {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PAIS")
     @SequenceGenerator(name = "SQ_PAIS", sequenceName = "SQ_PAIS", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PAIS")
-    private float codPais;
+    private Long codPais;
     @Column(name = "NOME")
     private String nome;
 
     public Pais() {
     }
 
-    public Pais(float codPais, String nome) {
+    public Pais(Long codPais, String nome) {
         this.codPais = codPais;
         this.nome = nome;
     }
@@ -25,7 +25,7 @@ public class Pais {
         return codPais;
     }
 
-    public Pais setCodPais(float codPais) {
+    public Pais setCodPais(Long codPais) {
         this.codPais = codPais;
         return this;
     }

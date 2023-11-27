@@ -3,40 +3,26 @@ package br.com.fiap.domain.entity;
 import jakarta.persistence.*;
 
 import java.util.Date;
-import java.math.BigDecimal;
+
 @Entity
 @Table(name = "TB_PF", uniqueConstraints = {
-        @UniqueConstraint( name = "UK_PF_CPF", columnNames = "NR_CPF")
+        @UniqueConstraint( name = "UK_PF_CPF", columnNames = "CPF")
 })
 @DiscriminatorValue("PF")
 public class PessoaFisica extends Pessoa {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PF")
-    @SequenceGenerator(name = "SQ_PF", sequenceName = "SQ_PF", allocationSize = 1, initialValue = 1)
-    @Column(name = "COD_PF")
-    private Long codPf;
+
     @Column(name = "DATA_NASC")
     private Date dataNasc;
     @Column(name = "CPF")
-    private BigDecimal cpf;
+    private String cpf;
 
     public PessoaFisica() {
     }
 
-    public PessoaFisica(BigDecimal codPessoa, String nome, String email, Boolean softDelete, String usuario, String senha, Long codPf, Date dataNasc, BigDecimal cpf) {
+    public PessoaFisica(Long codPessoa, String nome, String email, Boolean softDelete, String usuario, String senha, Long codPf, Date dataNasc, String cpf) {
         super(codPessoa, nome, email, softDelete, usuario, senha);
-        this.codPf = codPf;
         this.dataNasc = dataNasc;
         this.cpf = cpf;
-    }
-
-    public Long getCodPf() {
-        return codPf;
-    }
-
-    public PessoaFisica setCodPf(Long codPf) {
-        this.codPf = codPf;
-        return this;
     }
 
     public Date getDataNasc() {
@@ -48,21 +34,20 @@ public class PessoaFisica extends Pessoa {
         return this;
     }
 
-    public BigDecimal getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public PessoaFisica setCpf(BigDecimal cpf) {
+    public PessoaFisica setCpf(String cpf) {
         this.cpf = cpf;
         return this;
     }
 
     @Override
     public String toString() {
-        return "pessoaFisica{" +
-                "codPf=" + codPf +
+        return "PessoaFisica{" +
                 ", dataNasc=" + dataNasc +
-                ", cpf=" + cpf +
+                ", cpf='" + cpf + '\'' +
                 "} " + super.toString();
     }
 }

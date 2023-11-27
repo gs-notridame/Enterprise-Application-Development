@@ -19,23 +19,23 @@ public class Especialidade {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ESPECIALIDADE")
     @SequenceGenerator(name = "SQ_ESPECIALIDADE", sequenceName = "SQ_ESPECIALIDADE", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_ESPECIALIDADE")
-    private BigDecimal codEspecialidade;
+    private Long codEspecialidade;
     @Column(name = "ESPECIALIDADE")
     private String especialidae;
 
     public Especialidade() {
     }
 
-    public Especialidade(BigDecimal codEspecialidade, String especialidae) {
+    public Especialidade(Long codEspecialidade, String especialidae) {
         this.codEspecialidade = codEspecialidade;
         this.especialidae = especialidae;
     }
 
-    public BigDecimal getCodEspecialidade() {
+    public Long getCodEspecialidade() {
         return codEspecialidade;
     }
 
-    public Especialidade setCodEspecialidade(BigDecimal codEspecialidade) {
+    public Especialidade setCodEspecialidade(Long codEspecialidade) {
         this.codEspecialidade = codEspecialidade;
         return this;
     }

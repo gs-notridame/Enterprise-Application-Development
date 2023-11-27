@@ -19,7 +19,7 @@ public class Cidade {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CIDADE")
     @SequenceGenerator(name = "SQ_CIDADE", sequenceName = "SQ_CIDADE", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_CIDADE")
-    private BigDecimal codCidade;
+    private Long codCidade;
     @Column(name = "NOME")
     private  String nome;
     @Column(name = "COD_IBGE")
@@ -28,17 +28,17 @@ public class Cidade {
     public Cidade() {
     }
 
-    public Cidade(BigDecimal codCidade, String nome, BigDecimal codIbge) {
+    public Cidade(Long codCidade, String nome, BigDecimal codIbge) {
         this.codCidade = codCidade;
         this.nome = nome;
         this.codIbge = codIbge;
     }
 
-    public BigDecimal getCodCidade() {
+    public Long getCodCidade() {
         return codCidade;
     }
 
-    public Cidade setCodCidade(BigDecimal codCidade) {
+    public Cidade setCodCidade(Long codCidade) {
         this.codCidade = codCidade;
         return this;
     }

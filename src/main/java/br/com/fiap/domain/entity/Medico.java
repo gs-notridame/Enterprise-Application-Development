@@ -11,22 +11,22 @@ public class Medico {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_MEDICO")
     @SequenceGenerator(name = "SQ_MEDICO", sequenceName = "SQ_MEDICO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_MEDICO")
-    private BigDecimal codMedico;
+    private Long codMedico;
     @Column(name = "CRP")
     private String crp;
 
     public Medico() {
     }
-    public Medico(BigDecimal codMedico, String crp) {
+    public Medico(Long codMedico, String crp) {
         this.codMedico = codMedico;
         this.crp = crp;
     }
 
-    public BigDecimal getCodMedico() {
+    public Long getCodMedico() {
         return codMedico;
     }
 
-    public Medico setCodMedico(BigDecimal codMedico) {
+    public Medico setCodMedico(Long codMedico) {
         this.codMedico = codMedico;
         return this;
     }

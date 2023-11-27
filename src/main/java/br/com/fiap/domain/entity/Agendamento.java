@@ -1,8 +1,6 @@
 package br.com.fiap.domain.entity;
 
 import jakarta.persistence.*;
-
-import java.math.BigDecimal;
 import java.sql.Time;
 import java.util.Date;
 
@@ -22,7 +20,7 @@ public class Agendamento {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_AGENDAMENTO")
     @SequenceGenerator(name = "SQ_AGENDAMENTO", sequenceName = "AGENDAMENTO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_AGENDAMENTO")
-    private BigDecimal codAgendamento;
+    private Long codAgendamento;
     @Column(name = "DATA_AGENDAMENTO")
     private Date dataAgendamento;
     @Column(name = "HORA_AGENDAMENTO")
@@ -35,7 +33,7 @@ public class Agendamento {
     public Agendamento() {
     }
 
-    public Agendamento(BigDecimal codAgendamento, Date dataAgendamento, Time horaAgendamento, String status, String observacoes) {
+    public Agendamento(Long codAgendamento, Date dataAgendamento, Time horaAgendamento, String status, String observacoes) {
         this.codAgendamento = codAgendamento;
         this.dataAgendamento = dataAgendamento;
         this.horaAgendamento = horaAgendamento;
@@ -43,11 +41,11 @@ public class Agendamento {
         this.observacoes = observacoes;
     }
 
-    public BigDecimal getCodAgendamento() {
+    public Long getCodAgendamento() {
         return codAgendamento;
     }
 
-    public Agendamento setCodAgendamento(BigDecimal codAgendamento) {
+    public Agendamento setCodAgendamento(Long codAgendamento) {
         this.codAgendamento = codAgendamento;
         return this;
     }

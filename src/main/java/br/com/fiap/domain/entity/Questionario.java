@@ -13,7 +13,7 @@ public class Questionario {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_QUESTIONARIO")
     @SequenceGenerator(name = "SQ_QUESTIONARIO", sequenceName = "SQ_QUESTIONARIO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_QUESTIONARIO")
-    private BigDecimal codQuestionario;
+    private Long codQuestionario;
     @Column(name = "DESCRICAO")
     private String descricao;
     @Column(name = "PERGUNTAS")
@@ -30,7 +30,7 @@ public class Questionario {
     public Questionario() {
     }
 
-    public Questionario(BigDecimal codQuestionario, String descricao, String perguntas, String titulo, String categoria, String nomeCriador, Date duracao) {
+    public Questionario(Long codQuestionario, String descricao, String perguntas, String titulo, String categoria, String nomeCriador, Date duracao) {
         this.codQuestionario = codQuestionario;
         this.descricao = descricao;
         this.perguntas = perguntas;
@@ -40,11 +40,11 @@ public class Questionario {
         this.duracao = duracao;
     }
 
-    public BigDecimal getCodQuestionario() {
+    public Long getCodQuestionario() {
         return codQuestionario;
     }
 
-    public Questionario setCodQuestionario(BigDecimal codQuestionario) {
+    public Questionario setCodQuestionario(Long codQuestionario) {
         this.codQuestionario = codQuestionario;
         return this;
     }

@@ -19,23 +19,23 @@ public class Recomendacao {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_RECOMENDACAO")
     @SequenceGenerator(name = "SQ_RECOMENDACAO", sequenceName = "SQ_RECOMENDACAO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_RECOMENDACAO")
-    private BigDecimal codRecomendacao;
+    private Long codRecomendacao;
     @Column(name = "RECOMENDACAO")
     private String recomendacao;
 
     public Recomendacao() {
     }
 
-    public Recomendacao(BigDecimal codRecomendacao, String recomendacao) {
+    public Recomendacao(Long codRecomendacao, String recomendacao) {
         this.codRecomendacao = codRecomendacao;
         this.recomendacao = recomendacao;
     }
 
-    public BigDecimal getCodRecomendacao() {
+    public Long getCodRecomendacao() {
         return codRecomendacao;
     }
 
-    public Recomendacao setCodRecomendacao(BigDecimal codRecomendacao) {
+    public Recomendacao setCodRecomendacao(Long codRecomendacao) {
         this.codRecomendacao = codRecomendacao;
         return this;
     }

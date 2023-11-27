@@ -18,8 +18,8 @@ public class Avaliacao {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_AGENDAMENTO")
     @SequenceGenerator(name = "SQ_AGENDAMENTO", sequenceName = "AGENDAMENTO", allocationSize = 1, initialValue = 1)
-    @Column(name = "COD_AVALIACAO") //LONG
-    private BigDecimal codAvaliacao;
+    @Column(name = "COD_AVALIACAO")
+    private Long codAvaliacao;
     @Column(name = "NOTA")
     private BigDecimal nota;
     @Column(name = "COMENTARIO")
@@ -30,18 +30,18 @@ public class Avaliacao {
     public Avaliacao() {
     }
 
-    public Avaliacao(BigDecimal codAvaliacao, BigDecimal nota, String comentario, Date data) {
+    public Avaliacao(Long codAvaliacao, BigDecimal nota, String comentario, Date data) {
         this.codAvaliacao = codAvaliacao;
         this.nota = nota;
         this.comentario = comentario;
         this.data = data;
     }
 
-    public BigDecimal getCodAvaliacao() {
+    public Long getCodAvaliacao() {
         return codAvaliacao;
     }
 
-    public Avaliacao setCodAvaliacao(BigDecimal codAvaliacao) {
+    public Avaliacao setCodAvaliacao(Long codAvaliacao) {
         this.codAvaliacao = codAvaliacao;
         return this;
     }

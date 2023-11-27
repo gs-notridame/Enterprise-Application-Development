@@ -20,7 +20,7 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ENDERECO")
     @SequenceGenerator(name = "SQ_ENDERECO", sequenceName = "SQ_ENDERECO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_ENDERECO")
-    private BigDecimal codEndereco;
+    private Long codEndereco;
     @Column(name = "CEP")
     private  BigDecimal cep;
     @Column(name = "LOGRADOURO")
@@ -33,7 +33,7 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Endereco(BigDecimal codEndereco, BigDecimal cep, String logradouoro, BigDecimal numero, BigDecimal complemento) {
+    public Endereco(Long codEndereco, BigDecimal cep, String logradouoro, BigDecimal numero, BigDecimal complemento) {
         this.codEndereco = codEndereco;
         this.cep = cep;
         this.logradouoro = logradouoro;
@@ -41,11 +41,11 @@ public class Endereco {
         this.complemento = complemento;
     }
 
-    public BigDecimal getCodEndereco() {
+    public Long getCodEndereco() {
         return codEndereco;
     }
 
-    public Endereco setCodEndereco(BigDecimal codEndereco) {
+    public Endereco setCodEndereco(Long codEndereco) {
         this.codEndereco = codEndereco;
         return this;
     }

@@ -15,7 +15,7 @@ public class Diagnostico {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_DIAGNOSTICO")
     @SequenceGenerator(name = "SQ_DIAGNOSTICO", sequenceName = "SQ_DIAGNOSTICO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_DIAGNOSTICO")
-    private BigDecimal codDiagnostico;
+    private Long codDiagnostico;
     @Column(name = "DATA_GERACAO")
     private Date dataGeracao;
     @Column(name = "RESULTADO")
@@ -28,7 +28,7 @@ public class Diagnostico {
     public Diagnostico() {
     }
 
-    public Diagnostico(BigDecimal codDiagnostico, Date dataGeracao, String resultado, String observacao, String segmentoAcao) {
+    public Diagnostico(Long codDiagnostico, Date dataGeracao, String resultado, String observacao, String segmentoAcao) {
         this.codDiagnostico = codDiagnostico;
         this.dataGeracao = dataGeracao;
         this.resultado = resultado;
@@ -36,11 +36,11 @@ public class Diagnostico {
         this.segmentoAcao = segmentoAcao;
     }
 
-    public BigDecimal getCodDiagnostico() {
+    public Long getCodDiagnostico() {
         return codDiagnostico;
     }
 
-    public Diagnostico setCodDiagnostico(BigDecimal codDiagnostico) {
+    public Diagnostico setCodDiagnostico(Long codDiagnostico) {
         this.codDiagnostico = codDiagnostico;
         return this;
     }

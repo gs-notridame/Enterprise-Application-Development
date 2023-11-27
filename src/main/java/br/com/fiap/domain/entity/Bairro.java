@@ -18,7 +18,7 @@ public class Bairro {
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
     @JoinColumn(
             name = "CIDADE",
-            referencedColumnName = "COD_CIADDE",
+            referencedColumnName = "COD_CIDADE",
             foreignKey = @ForeignKey(name = "FK_BAIRRO_CIDADE")
     )
     private Cidade cidade;
@@ -27,23 +27,23 @@ public class Bairro {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_BAIRRO")
     @SequenceGenerator(name = "SQ_BAIRRO", sequenceName = "SQ_BAIRRO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_BAIRRO")
-    private BigDecimal codBairro;
+    private Long codBairro;
     @Column(name = "NOME")
     private  String nome;
 
     public Bairro() {
     }
 
-    public Bairro(BigDecimal codBairro, String nome) {
+    public Bairro(Long codBairro, String nome) {
         this.codBairro = codBairro;
         this.nome = nome;
 
     }
-    public BigDecimal getCodBairro() {
+    public Long getCodBairro() {
         return codBairro;
     }
 
-    public Bairro setCodBairro(BigDecimal codBairro) {
+    public Bairro setCodBairro(Long codBairro) {
         this.codBairro = codBairro;
         return this;
     }

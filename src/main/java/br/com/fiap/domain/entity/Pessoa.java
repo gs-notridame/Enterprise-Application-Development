@@ -2,22 +2,17 @@ package br.com.fiap.domain.entity;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 @Entity
 @Table(name = "TB_PESSOA")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "TIPO")
 public class Pessoa {
 
-    @OneToOne
-    @JoinColumn(name = "COD_PF")
-    private PessoaFisica pessoaFisica;
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PESSOA")
     @SequenceGenerator(name = "SQ_PESSOA", sequenceName = "SQ_PESSOA", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PESSOA")
-    private BigDecimal codPessoa;
+    private Long codPessoa;
     @Column(name = "NOME")
     private String nome;
     @Column(name = "EMAIL")
@@ -32,7 +27,7 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(BigDecimal codPessoa, String nome, String email, Boolean softDelete, String usuario, String senha) {
+    public Pessoa(Long codPessoa, String nome, String email, Boolean softDelete, String usuario, String senha) {
         this.codPessoa = codPessoa;
         this.nome = nome;
         this.email = email;
@@ -41,11 +36,11 @@ public class Pessoa {
         this.senha = senha;
     }
 
-    public BigDecimal getCodPessoa() {
+    public Long getCodPessoa() {
         return codPessoa;
     }
 
-    public Pessoa setCodPessoa(BigDecimal codPessoa) {
+    public Pessoa setCodPessoa(Long codPessoa) {
         this.codPessoa = codPessoa;
         return this;
     }

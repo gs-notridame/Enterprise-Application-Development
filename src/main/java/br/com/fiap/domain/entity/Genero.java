@@ -13,23 +13,23 @@ public class Genero {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_GENERO")
     @SequenceGenerator(name = "SQ_GENERO", sequenceName = "SQ_GENERO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_GENERO")
-    private BigDecimal codGenero;
+    private Long codGenero;
     @Column(name = "GENERO")
     private  String genero;
 
     public Genero() {
     }
 
-    public Genero(BigDecimal codGenero, String genero) {
+    public Genero(Long codGenero, String genero) {
         this.codGenero = codGenero;
         this.genero = genero;
     }
 
-    public BigDecimal getCodGenero() {
+    public Long getCodGenero() {
         return codGenero;
     }
 
-    public Genero setCodGenero(BigDecimal codGenero) {
+    public Genero setCodGenero(Long codGenero) {
         this.codGenero = codGenero;
         return this;
     }

@@ -10,7 +10,7 @@ public class Paciente {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PACIENTE")
     @SequenceGenerator(name = "SQ_PACIENTE", sequenceName = "SQ_PACIENTE", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PACIENTE")
-    private BigDecimal codPaciente;
+    private Long codPaciente;
     @Column(name = "HISTORICO")
     private String historico;
     @Column(name = "NUM_SEGURO_SAUDE")
@@ -19,17 +19,17 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(BigDecimal codPaciente, String historico, BigDecimal numSeguroSaude) {
+    public Paciente(Long codPaciente, String historico, BigDecimal numSeguroSaude) {
         this.codPaciente = codPaciente;
         this.historico = historico;
         this.numSeguroSaude = numSeguroSaude;
     }
 
-    public BigDecimal getCodPaciente() {
+    public Long getCodPaciente() {
         return codPaciente;
     }
 
-    public Paciente setCodPaciente(BigDecimal codPaciente) {
+    public Paciente setCodPaciente(Long codPaciente) {
         this.codPaciente = codPaciente;
         return this;
     }
