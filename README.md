@@ -1,107 +1,63 @@
-# Viagem Benezinho  🤓👍🏾
+# harmonIA - Projeto de Saúde Mental
 
+## Equipe
 
-| ![](documentacao/fiap.jpg)               | **ENTERPRISE APPLICATION DEVELOPMENT** |
-|------------------------------------------|----------------------------------------|
-| **ALUNO:**                               | **TURMA:**                             |
-| **PROFESSOR:** Benefrancis do Nascimento |                                        |
-| **Checkpoint**                           |                                        |
+- **Felipe de Lima Santiago**
+    - **Cargo:** Scrum Master
+    - **Contribuição:** Coordenação ágil e suporte ao desenvolvimento.
 
-# Sumário
+- **THIAGO GYORGY TEIXEIRA DE CASTRO**
+    - **Cargos:** DBA, UX/UI Designer
+    - **Contribuição:** Gerenciamento do banco de dados e design de interface do usuário.
 
+- **Matheus Ramos de Pierro**
+    - **Cargos:** DBA, Arquiteto de Software, Dev Backend
+    - **Contribuição:** Desenvolvimento backend, arquitetura de software e administração do banco de dados.
 
-[Estudo de caso ](#_Estudo_de_caso)
+- **Victor Shimada Serete**
+    - **Cargos:** UX/UI Designer
+    - **Contribuição:** Design de interface do usuário e experiência do usuário.
 
-[O que deverá ser feito? ](#_O_que_devera_ser_feito)
+- **Gabriel Tricerri André Niacaris**
+    - **Cargos:** Dev Backend
+    - **Contribuição:** Desenvolvimento do backend do aplicativo.
 
-[Diagrama de Classes ](#_Diagrama_de_Classes)
+## Introdução:
 
-[Diagrama de Entidades e Relacionamentos ](#_DER)
+O aumento das demandas relacionadas à saúde mental destaca a necessidade de soluções inovadoras e acessíveis. O aplicativo harmonIA é uma resposta estratégica da Notredame para oferecer suporte eficaz à saúde mental, promovendo a prevenção, tornando a assistência médica mais acessível e precisa, e fomentando a saúde geral dos usuários, de forma acessível.
 
-[Mapa de Persistência ](#_PERSISTENCIA)
+## Problema:
 
-[Correção ](#_Correcao)
+O cenário atual de saúde mental apresenta desafios significativos, com o aumento das taxas de estresse, ansiedade e depressão. A busca por assistência muitas vezes é dificultada pela falta de acesso a recursos adequados. Além disso, a detecção precoce e a prevenção eficaz são essenciais para reduzir o impacto das doenças mentais.
 
-<a id="_Estudo_de_caso"></a>
+## Solução:
 
-# Estudo de caso
+O harmonIA é um aplicativo de saúde mental que integra tecnologias emergentes para oferecer uma abordagem abrangente e inovadora. Suas principais características incluem:
 
+- **Detecção Precoce por meio de IA:** Utilização de algoritmos de inteligência artificial (IA) para analisar padrões de comportamento e identificar sinais precoces de problemas de saúde mental.
 
-A Holding Benezinho ![](RackMultipart20230510-1-eptqiz_html_5188b812c34f88e5.png) não para de crescer, para o proximo ano começará a atuar no ramo de transportes. O objetivo é fornecer serviços com mais qualidade que os atuais.
+- **Automação de Suporte:** Implementação de chatbots e assistentes virtuais para oferecer suporte emocional e fornecer informações úteis de forma instantânea.
 
-A empresa passará a disponibilizar Aplicativo de transporte de passageiros e produtos. 
+- **Análise de Dados para Personalização**  Coleta de dados sobre o usuário, como padrões de sono, níveis de atividade física e interações no aplicativo.
 
-Contratamos você como Engenheiro de Software para nos ajudar a construir esse sistema.
+- **Acessibilidade Aprimorada** Interface intuitiva e design centrado no usuário para garantir acessibilidade a todas as faixas etárias.
 
-Na sprint atual, você foi incumbido de fazer:
+- **Colaboração com Profissionais de Saúde** Facilitação da comunicação entre usuários e profissionais de saúde mental.
 
-1. A persistência de todos os dados, e;
+## Conclusão:
 
-4. A criação de dos métodos capazes de realizar operações respeitando as interfaces genéricas Repository, Service e Resource:
+O harmonIA representa um avanço inovador no cuidado com a saúde mental, oferecendo uma abordagem holística e acessível. Ao integrar tecnologias emergentes, o aplicativo visa promover a prevenção, tornar a assistência médica mais acessível e precisa, e incentivar a saúde mental de maneira geral, alinhando-se aos objetivos estratégicos da Notredame.
 
+## Lista de Tecnologias:
 
-<a id="_O_que_devera_ser_feito"></a>
+- **Jakarta Persistence (JPA) - Versão:** 3.0
+- **Oracle JDBC Driver (ojdbc8) - Versão:** 23.2.0.0
+- **Hibernate Core - Versão:** 6.2.7.Final
+- **Java - Versão:** 18
 
-# O que deverá ser feito?
+## Diagrama de Classes
 
+<img alt="Modelagem de Classes.PNG" src="C:\Users\user\Desktop\Enterprise-Application-Development\documentacao\diagrama\Modelagem de Classes.PNG"/>
 
-**Faça o Fork do projeto no github do professor :**
-
-https://github.com/Benefrancis/benezinho-viagens.git
-
-Caso o github esteja indisponível, você deverá pegar o projeto no diretório compartilhado.
-
-**Você deverá:**
-
-Alterar o arquivo contido em documentacao/equipe.txt para incluir os RMs e nomes e turma da dupla que fará esta atividade.
-
-
-1. **(10 Pontos)** Implementar corretamente os métodos das classes que devem implementar as interfaces genéricas: 
-   1. (5,0 Pontos) **Repository**
-   2. (1,5 Ponto)  **Service**
-   3. (3,5 Pontos) **Resource**
-
-
-   Deverá implementar:
-
-
-<a id="_Diagrama_de_Classes"></a>
-
-# Diagrama de Classes de Domínio
-
-<img src="documentacao/diagrama/uml/entity.png">
-
-<a id="_DER"></a>
-
-# Diagrama de Entidades e Relacionamentos
-
-<img src="documentacao/diagrama/DER/der.png">
-
-<a id="_PERSISTENCIA"></a>
-
-# Mapa de Persistência
-
-<img src="documentacao/database/mapa-persistencia.png">
-
- 
-
- 
-
-<img src="documentacao/diagrama/jpa/jpa.png">
-
-
-<a id="_Correcao"></a>
-
-# Correção da Prova
-
-A correção da prova será disponibilizada no github do professor (branch correcao):
-
-Para acessar digite no prompt:
-
-```shell
-git clone https://github.com/Benefrancis/benezinho-viagens.git && cd javapet && git checkout correcao
-```
-
-A atividade é em dupla, em caso de fraude de qualquer tipo todos os envolvidos receberão nota ZERO.
-
-Boa prova.
+## Modelo logico
+<img alt="Modelagem de Classes.PNG" src="C:\Users\user\Desktop\Enterprise-Application-Development\documentacao\diagrama\DER\Modelo logico.PNG"/>

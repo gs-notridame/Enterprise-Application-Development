@@ -22,7 +22,7 @@ public class Endereco {
     @Column(name = "COD_ENDERECO")
     private Long codEndereco;
     @Column(name = "CEP")
-    private  BigDecimal cep;
+    private  String cep;
     @Column(name = "LOGRADOURO")
     private  String logradouoro;
     @Column(name = "NUMERO")
@@ -33,7 +33,7 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Endereco(Long codEndereco, BigDecimal cep, String logradouoro, BigDecimal numero, BigDecimal complemento) {
+    public Endereco(Long codEndereco, String cep, String logradouoro, BigDecimal numero, BigDecimal complemento) {
         this.codEndereco = codEndereco;
         this.cep = cep;
         this.logradouoro = logradouoro;
@@ -50,11 +50,11 @@ public class Endereco {
         return this;
     }
 
-    public BigDecimal getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public Endereco setCep(BigDecimal cep) {
+    public Endereco setCep(String cep) {
         this.cep = cep;
         return this;
     }
