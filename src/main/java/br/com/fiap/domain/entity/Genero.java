@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 @Entity
-@Table(name = "TB_GENERO")
+@Table(name = "GENERO")
 public class Genero {
     @OneToOne
     @JoinColumn(name = "COD_PESSOA")

@@ -4,9 +4,10 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.Date;
 @Entity
-@Table(name = "TB_TRIAGEM")
+@Table(name = "TRIAGEM")
 public class Triagem {
 
     @OneToOne
@@ -28,9 +29,9 @@ public class Triagem {
     @Column(name = "COD_TRIAGEM")
     private Long codTriagem;
     @Column(name = "INICIO")
-    private  Date incio;
+    private LocalDate incio;
     @Column(name = "FIM")
-    private Date fim;
+    private LocalDate fim;
     @Column(name = "DURACAO")
     private Time duracao;
     @Column(name = "RESPOSTAS")
@@ -39,7 +40,7 @@ public class Triagem {
     public Triagem() {
     }
 
-    public Triagem(Long codTriagem, Date incio, Date fim, Time duracao, String respostas) {
+    public Triagem(Long codTriagem, LocalDate incio, LocalDate fim, Time duracao, String respostas) {
         this.codTriagem = codTriagem;
         this.incio = incio;
         this.fim = fim;
@@ -56,20 +57,20 @@ public class Triagem {
         return this;
     }
 
-    public Date getIncio() {
+    public LocalDate getIncio() {
         return incio;
     }
 
-    public Triagem setIncio(Date incio) {
+    public Triagem setIncio(LocalDate incio) {
         this.incio = incio;
         return this;
     }
 
-    public Date getFim() {
+    public LocalDate getFim() {
         return fim;
     }
 
-    public Triagem setFim(Date fim) {
+    public Triagem setFim(LocalDate fim) {
         this.fim = fim;
         return this;
     }

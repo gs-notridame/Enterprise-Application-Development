@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 @Entity
-@Table(name = "TB_PACIENTE")
+@Table(name = "PACIENTE")
 public class Paciente {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PACIENTE")
@@ -14,12 +14,12 @@ public class Paciente {
     @Column(name = "HISTORICO")
     private String historico;
     @Column(name = "NUM_SEGURO_SAUDE")
-    private BigDecimal numSeguroSaude;
+    private Long numSeguroSaude;
 
     public Paciente() {
     }
 
-    public Paciente(Long codPaciente, String historico, BigDecimal numSeguroSaude) {
+    public Paciente(Long codPaciente, String historico, Long numSeguroSaude) {
         this.codPaciente = codPaciente;
         this.historico = historico;
         this.numSeguroSaude = numSeguroSaude;
@@ -43,11 +43,11 @@ public class Paciente {
         return this;
     }
 
-    public BigDecimal getNumSeguroSaude() {
+    public Long getNumSeguroSaude() {
         return numSeguroSaude;
     }
 
-    public Paciente setNumSeguroSaude(BigDecimal numSeguroSaude) {
+    public Paciente setNumSeguroSaude(Long numSeguroSaude) {
         this.numSeguroSaude = numSeguroSaude;
         return this;
     }

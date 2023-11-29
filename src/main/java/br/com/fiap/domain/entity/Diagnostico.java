@@ -1,10 +1,11 @@
 package br.com.fiap.domain.entity;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
-@Table(name = "TB_DIAGNOSTICO")
+@Table(name = "DIAGNOSTICO")
 public class Diagnostico {
 
     @OneToOne
@@ -17,7 +18,7 @@ public class Diagnostico {
     @Column(name = "COD_DIAGNOSTICO")
     private Long codDiagnostico;
     @Column(name = "DATA_GERACAO")
-    private Date dataGeracao;
+    private LocalDate dataGeracao;
     @Column(name = "RESULTADO")
     private String resultado;
     @Column(name = "OBSERVACAO")
@@ -28,7 +29,7 @@ public class Diagnostico {
     public Diagnostico() {
     }
 
-    public Diagnostico(Long codDiagnostico, Date dataGeracao, String resultado, String observacao, String segmentoAcao) {
+    public Diagnostico(Long codDiagnostico, LocalDate dataGeracao, String resultado, String observacao, String segmentoAcao) {
         this.codDiagnostico = codDiagnostico;
         this.dataGeracao = dataGeracao;
         this.resultado = resultado;
@@ -45,11 +46,11 @@ public class Diagnostico {
         return this;
     }
 
-    public Date getDataGeracao() {
+    public LocalDate getDataGeracao() {
         return dataGeracao;
     }
 
-    public Diagnostico setDataGeracao(Date dataGeracao) {
+    public Diagnostico setDataGeracao(LocalDate dataGeracao) {
         this.dataGeracao = dataGeracao;
         return this;
     }

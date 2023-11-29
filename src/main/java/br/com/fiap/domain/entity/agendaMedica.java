@@ -2,11 +2,12 @@ package br.com.fiap.domain.entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 import java.sql.Time;
 
 @Entity
-@Table(name = "TB_AGENDA_MEDICA")
+@Table(name = "AGENDA_MEDICA")
 public class agendaMedica {
     @OneToOne
     @JoinColumn(name = "COD_MEDICO")
@@ -21,7 +22,7 @@ public class agendaMedica {
     @Column(name = "COD_AGENDA")
     private Long codAgenda;
     @Column(name = "DATA_AGENDAMENTO")
-    private Date dataAgendamento;
+    private LocalDate dataAgendamento;
     @Column(name = "HORA_AGENDAMENTO")
     private Time horaAgendamento;
     @Column(name = "STATUS")
@@ -32,7 +33,7 @@ public class agendaMedica {
     public agendaMedica() {
     }
 
-    public agendaMedica(Long codAgenda, Date dataAgendamento, Time horaAgendamento, String status, String observacoes) {
+    public agendaMedica(Long codAgenda, LocalDate dataAgendamento, Time horaAgendamento, String status, String observacoes) {
         this.codAgenda = codAgenda;
         this.dataAgendamento = dataAgendamento;
         this.horaAgendamento = horaAgendamento;
@@ -49,11 +50,11 @@ public class agendaMedica {
         return this;
     }
 
-    public Date getDataAgendamento() {
+    public LocalDate getDataAgendamento() {
         return dataAgendamento;
     }
 
-    public agendaMedica setDataAgendamento(Date dataAgendamento) {
+    public agendaMedica setDataAgendamento(LocalDate dataAgendamento) {
         this.dataAgendamento = dataAgendamento;
         return this;
     }

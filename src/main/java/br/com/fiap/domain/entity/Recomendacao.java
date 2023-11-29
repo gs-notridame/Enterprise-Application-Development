@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "TB_RECOMENDACAO")
+@Table(name = "RECOMENDACAO")
 public class Recomendacao {
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
     @JoinColumn(

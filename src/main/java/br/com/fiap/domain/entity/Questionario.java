@@ -4,10 +4,11 @@ import jakarta.persistence.*;
 
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
-@Table(name = "TB_QUESTIONARIO")
+@Table(name = "QUESTIONARIO")
 public class Questionario {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_QUESTIONARIO")
@@ -25,12 +26,12 @@ public class Questionario {
     @Column(name = "NOME_CRIADOR")
     private String nomeCriador;
     @Column(name = "DURACAO")
-    private Date duracao;
+    private LocalDate duracao;
 
     public Questionario() {
     }
 
-    public Questionario(Long codQuestionario, String descricao, String perguntas, String titulo, String categoria, String nomeCriador, Date duracao) {
+    public Questionario(Long codQuestionario, String descricao, String perguntas, String titulo, String categoria, String nomeCriador, LocalDate duracao) {
         this.codQuestionario = codQuestionario;
         this.descricao = descricao;
         this.perguntas = perguntas;
@@ -94,11 +95,11 @@ public class Questionario {
         return this;
     }
 
-    public Date getDuracao() {
+    public LocalDate getDuracao() {
         return duracao;
     }
 
-    public Questionario setDuracao(Date duracao) {
+    public Questionario setDuracao(LocalDate duracao) {
         this.duracao = duracao;
         return this;
     }

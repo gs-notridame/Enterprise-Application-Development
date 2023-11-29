@@ -2,10 +2,11 @@ package br.com.fiap.domain.entity;
 
 import jakarta.persistence.*;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
-@Table(name = "TB_AGENDAMENTO")
+@Table(name = "AGENDAMENTO")
 public class Agendamento {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
@@ -18,22 +19,23 @@ public class Agendamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_AGENDAMENTO")
-    @SequenceGenerator(name = "SQ_AGENDAMENTO", sequenceName = "AGENDAMENTO", allocationSize = 1, initialValue = 1)
+    @SequenceGenerator(name = "SQ_AGENDAMENTO", sequenceName = "SQ_AGENDAMENTO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_AGENDAMENTO")
     private Long codAgendamento;
     @Column(name = "DATA_AGENDAMENTO")
-    private Date dataAgendamento;
+    private LocalDate dataAgendamento;
     @Column(name = "HORA_AGENDAMENTO")
     private Time horaAgendamento;
     @Column(name = "STATUS")
     private String status;
-    @Column(name = "OBESERVACOES")
+    @Column(name = "OBSERVACOES")
     private String observacoes;
+
 
     public Agendamento() {
     }
 
-    public Agendamento(Long codAgendamento, Date dataAgendamento, Time horaAgendamento, String status, String observacoes) {
+    public Agendamento(Long codAgendamento, LocalDate dataAgendamento, Time horaAgendamento, String status, String observacoes) {
         this.codAgendamento = codAgendamento;
         this.dataAgendamento = dataAgendamento;
         this.horaAgendamento = horaAgendamento;
@@ -50,11 +52,11 @@ public class Agendamento {
         return this;
     }
 
-    public Date getDataAgendamento() {
+    public LocalDate getDataAgendamento() {
         return dataAgendamento;
     }
 
-    public Agendamento setDataAgendamento(Date dataAgendamento) {
+    public Agendamento setDataAgendamento(LocalDate dataAgendamento) {
         this.dataAgendamento = dataAgendamento;
         return this;
     }

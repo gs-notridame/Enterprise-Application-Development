@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "TB_ENDERECO")
+@Table(name = "ENDERECO")
 public class Endereco {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
@@ -26,14 +26,14 @@ public class Endereco {
     @Column(name = "LOGRADOURO")
     private  String logradouoro;
     @Column(name = "NUMERO")
-    private BigDecimal numero;
+    private Long numero;
     @Column(name = "COMPLEMENTO")
-    private  BigDecimal complemento;
+    private  Long complemento;
 
     public Endereco() {
     }
 
-    public Endereco(Long codEndereco, String cep, String logradouoro, BigDecimal numero, BigDecimal complemento) {
+    public Endereco(Long codEndereco, String cep, String logradouoro, Long numero, Long complemento) {
         this.codEndereco = codEndereco;
         this.cep = cep;
         this.logradouoro = logradouoro;
@@ -68,20 +68,20 @@ public class Endereco {
         return this;
     }
 
-    public BigDecimal getNumero() {
+    public Long getNumero() {
         return numero;
     }
 
-    public Endereco setNumero(BigDecimal numero) {
+    public Endereco setNumero(Long numero) {
         this.numero = numero;
         return this;
     }
 
-    public BigDecimal getComplemento() {
+    public Long getComplemento() {
         return complemento;
     }
 
-    public Endereco setComplemento(BigDecimal complemento) {
+    public Endereco setComplemento(Long complemento) {
         this.complemento = complemento;
         return this;
     }

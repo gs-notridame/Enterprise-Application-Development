@@ -3,7 +3,7 @@ package br.com.fiap.domain.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "TB_PESSOA")
+@Table(name = "PESSOA")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "TIPO")
 public class Pessoa {

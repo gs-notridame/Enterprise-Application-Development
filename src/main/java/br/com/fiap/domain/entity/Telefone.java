@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 @Entity
-@Table(name = "TB_TELEFONE")
+@Table(name = "TELEFONE")
 public class Telefone {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
@@ -21,14 +21,14 @@ public class Telefone {
     @Column(name = "COD_TELEFONE")
     private Long codTelefone;
     @Column(name = "NUMERO")
-    private BigDecimal numero;
+    private Long numero;
     @Column(name = "DDD")
-    private BigDecimal ddd;
+    private Long ddd;
 
     public Telefone() {
     }
 
-    public Telefone(Long codTelefone, BigDecimal numero, BigDecimal ddd) {
+    public Telefone(Long codTelefone, Long numero, Long ddd) {
         this.codTelefone = codTelefone;
         this.numero = numero;
         this.ddd = ddd;
@@ -43,20 +43,20 @@ public class Telefone {
         return this;
     }
 
-    public BigDecimal getNumero() {
+    public Long getNumero() {
         return numero;
     }
 
-    public Telefone setNumero(BigDecimal numero) {
+    public Telefone setNumero(Long numero) {
         this.numero = numero;
         return this;
     }
 
-    public BigDecimal getDdd() {
+    public Long getDdd() {
         return ddd;
     }
 
-    public Telefone setDdd(BigDecimal ddd) {
+    public Telefone setDdd(Long ddd) {
         this.ddd = ddd;
         return this;
     }

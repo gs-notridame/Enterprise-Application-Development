@@ -3,7 +3,7 @@ package br.com.fiap.domain.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "TB_PAIS")
+@Table(name = "PAIS")
 public class Pais {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PAIS")

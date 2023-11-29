@@ -1,10 +1,11 @@
 package br.com.fiap.domain.entity;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
-@Table(name = "TB_AVALIACAO")
+@Table(name = "AVALIACAO")
 public class Avaliacao {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
@@ -16,21 +17,21 @@ public class Avaliacao {
     private Medico medico;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_AGENDAMENTO")
-    @SequenceGenerator(name = "SQ_AGENDAMENTO", sequenceName = "AGENDAMENTO", allocationSize = 1, initialValue = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_AVALIACAO")
+    @SequenceGenerator(name = "SQ_AVALIACAO", sequenceName = "SQ_AVALIACAO", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_AVALIACAO")
     private Long codAvaliacao;
     @Column(name = "NOTA")
-    private BigDecimal nota;
+    private Long nota;
     @Column(name = "COMENTARIO")
     private String comentario;
     @Column(name = "DATA")
-    private Date data;
+    private LocalDate data;
 
     public Avaliacao() {
     }
 
-    public Avaliacao(Long codAvaliacao, BigDecimal nota, String comentario, Date data) {
+    public Avaliacao(Long codAvaliacao, Long nota, String comentario, LocalDate data) {
         this.codAvaliacao = codAvaliacao;
         this.nota = nota;
         this.comentario = comentario;
@@ -46,11 +47,11 @@ public class Avaliacao {
         return this;
     }
 
-    public BigDecimal getNota() {
+    public Long getNota() {
         return nota;
     }
 
-    public Avaliacao setNota(BigDecimal nota) {
+    public Avaliacao setNota(Long nota) {
         this.nota = nota;
         return this;
     }
@@ -64,11 +65,11 @@ public class Avaliacao {
         return this;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public Avaliacao setData(Date data) {
+    public Avaliacao setData(LocalDate data) {
         this.data = data;
         return this;
     }

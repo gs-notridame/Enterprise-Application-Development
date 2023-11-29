@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 @Entity
-@Table(name = "TB_CIDADE")
+@Table(name = "CIDADE")
 public class Cidade {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
@@ -23,12 +23,12 @@ public class Cidade {
     @Column(name = "NOME")
     private  String nome;
     @Column(name = "COD_IBGE")
-    private BigDecimal codIbge;
+    private Long codIbge;
 
     public Cidade() {
     }
 
-    public Cidade(Long codCidade, String nome, BigDecimal codIbge) {
+    public Cidade(Long codCidade, String nome, Long codIbge) {
         this.codCidade = codCidade;
         this.nome = nome;
         this.codIbge = codIbge;
@@ -52,11 +52,11 @@ public class Cidade {
         return this;
     }
 
-    public BigDecimal getCodIbge() {
+    public Long getCodIbge() {
         return codIbge;
     }
 
-    public Cidade setCodIbge(BigDecimal codIbge) {
+    public Cidade setCodIbge(Long codIbge) {
         this.codIbge = codIbge;
         return this;
     }
