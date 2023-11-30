@@ -16,11 +16,11 @@
 
 - **Victor Shimada Serete**
     - **Cargos:** UX/UI Designer
-    - **Contribuição:** Design de interface do usuário e experiência do usuário.
+    - **Contribuição:** Design de interface do usuário e Cientista de Dados.
 
 - **Gabriel Tricerri André Niacaris**
     - **Cargos:** Dev Backend
-    - **Contribuição:** Desenvolvimento do backend do aplicativo.
+    - **Contribuição:** Desenvolvimento do backend e Cientista de Dados.
 
 ## Introdução:
 
@@ -55,9 +55,14 @@ O harmonIA representa um avanço inovador no cuidado com a saúde mental, oferec
 - **Hibernate Core - Versão:** 6.2.7.Final
 - **Java - Versão:** 18
 
-## Diagrama de Classes
 
+## Modelagem de Classes
 <img alt="Modelagem de Classes.PNG" src="C:\Users\user\Desktop\Enterprise-Application-Development\documentacao\diagrama\Modelagem de Classes.PNG"/>
 
 ## Modelo logico
-<img alt="Modelagem de Classes.PNG" src="C:\Users\user\Desktop\Enterprise-Application-Development\documentacao\diagrama\DER\Modelo logico.PNG"/>
+<img alt="Modelagem de Classes.PNG" src="C:\Users\user\Desktop\Enterprise-Application-Development\documentacao\database\Modelo logico.PNG"/>
+
+## Modelo fisico
+<img alt="Modelagem de Classes.PNG" src="C:\Users\user\Desktop\Enterprise-Application-Development\documentacao\database\Modelo Fisico.PNG"/>
+
+
