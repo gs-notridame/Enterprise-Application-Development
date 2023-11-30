@@ -1,12 +1,25 @@
-package br.com.fiap.domain.entity;
+package br.com.fiap.domain.entity.endereco;
 
+import br.com.fiap.domain.entity.pessoa.Pessoa;
 import jakarta.persistence.*;
-
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "ENDERECO")
 public class Endereco {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ENDERECO")
+    @SequenceGenerator(name = "SQ_ENDERECO", sequenceName = "SQ_ENDERECO", allocationSize = 1, initialValue = 1)
+    @Column(name = "COD_ENDERECO")
+    private Long codEndereco;
+    @Column(name = "CEP")
+    private  Long cep;
+    @Column(name = "LOGRADOURO")
+    private  String logradouoro;
+    @Column(name = "NUMERO")
+    private Long numero;
+    @Column(name = "COMPLEMENTO")
+    private  String complemento;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
     @JoinColumn(
@@ -16,29 +29,25 @@ public class Endereco {
     )
     private Pessoa pessoa;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ENDERECO")
-    @SequenceGenerator(name = "SQ_ENDERECO", sequenceName = "SQ_ENDERECO", allocationSize = 1, initialValue = 1)
-    @Column(name = "COD_ENDERECO")
-    private Long codEndereco;
-    @Column(name = "CEP")
-    private  String cep;
-    @Column(name = "LOGRADOURO")
-    private  String logradouoro;
-    @Column(name = "NUMERO")
-    private Long numero;
-    @Column(name = "COMPLEMENTO")
-    private  Long complemento;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(
+            name = "BAIRRO",
+            referencedColumnName = "COD_BAIRRO",
+            foreignKey = @ForeignKey(name = "FK_ENDERECO_BAIRRO")
+    )
+    private Bairro bairro;
 
     public Endereco() {
     }
 
-    public Endereco(Long codEndereco, String cep, String logradouoro, Long numero, Long complemento) {
+    public Endereco(Long codEndereco, Long cep, String logradouoro, Long numero, String complemento, Pessoa pessoa, Bairro bairro) {
         this.codEndereco = codEndereco;
         this.cep = cep;
         this.logradouoro = logradouoro;
         this.numero = numero;
         this.complemento = complemento;
+        this.pessoa = pessoa;
+        this.bairro = bairro;
     }
 
     public Long getCodEndereco() {
@@ -50,11 +59,11 @@ public class Endereco {
         return this;
     }
 
-    public String getCep() {
+    public Long getCep() {
         return cep;
     }
 
-    public Endereco setCep(String cep) {
+    public Endereco setCep(Long cep) {
         this.cep = cep;
         return this;
     }
@@ -77,12 +86,30 @@ public class Endereco {
         return this;
     }
 
-    public Long getComplemento() {
+    public String getComplemento() {
         return complemento;
     }
 
-    public Endereco setComplemento(Long complemento) {
+    public Endereco setComplemento(String complemento) {
         this.complemento = complemento;
+        return this;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public Endereco setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+        return this;
+    }
+
+    public Bairro getBairro() {
+        return bairro;
+    }
+
+    public Endereco setBairro(Bairro bairro) {
+        this.bairro = bairro;
         return this;
     }
 
@@ -93,7 +120,9 @@ public class Endereco {
                 ", cep=" + cep +
                 ", logradouoro='" + logradouoro + '\'' +
                 ", numero=" + numero +
-                ", complemento=" + complemento +
+                ", complemento='" + complemento + '\'' +
+                ", pessoa=" + pessoa +
+                ", bairro=" + bairro +
                 '}';
     }
 }

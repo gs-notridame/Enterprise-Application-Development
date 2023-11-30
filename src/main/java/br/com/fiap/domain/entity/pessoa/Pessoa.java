@@ -1,4 +1,4 @@
-package br.com.fiap.domain.entity;
+package br.com.fiap.domain.entity.pessoa;
 
 import jakarta.persistence.*;
 

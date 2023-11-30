@@ -1,8 +1,8 @@
 package br.com.fiap.domain.entity;
 
+import br.com.fiap.domain.entity.pessoa.Pessoa;
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 @Entity
 @Table(name = "TELEFONE")
 public class Telefone {

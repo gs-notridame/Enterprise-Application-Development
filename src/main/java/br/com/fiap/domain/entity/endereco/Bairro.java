@@ -1,27 +1,10 @@
-package br.com.fiap.domain.entity;
+package br.com.fiap.domain.entity.endereco;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 @Entity
 @Table(name = "BAIRRO")
 public class Bairro {
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
-    @JoinColumn(
-            name = "ENDERECO",
-            referencedColumnName = "COD_ENDERECO",
-            foreignKey = @ForeignKey(name = "FK_BAIRRO_ENDERECP")
-    )
-    private Endereco endereco;
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
-    @JoinColumn(
-            name = "CIDADE",
-            referencedColumnName = "COD_CIDADE",
-            foreignKey = @ForeignKey(name = "FK_BAIRRO_CIDADE")
-    )
-    private Cidade cidade;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_BAIRRO")
@@ -31,14 +14,23 @@ public class Bairro {
     @Column(name = "NOME")
     private  String nome;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(
+            name = "CIDADE",
+            referencedColumnName = "COD_CIDADE",
+            foreignKey = @ForeignKey(name = "FK_BAIRRO_CIDADE")
+    )
+    private Cidade cidade;
+
     public Bairro() {
     }
 
-    public Bairro(Long codBairro, String nome) {
+    public Bairro(Long codBairro, String nome, Cidade cidade) {
         this.codBairro = codBairro;
         this.nome = nome;
-
+        this.cidade = cidade;
     }
+
     public Long getCodBairro() {
         return codBairro;
     }
@@ -57,11 +49,21 @@ public class Bairro {
         return this;
     }
 
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public Bairro setCidade(Cidade cidade) {
+        this.cidade = cidade;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Bairro{" +
                 "codBairro=" + codBairro +
                 ", nome='" + nome + '\'' +
+                ", cidade=" + cidade +
                 '}';
     }
 }

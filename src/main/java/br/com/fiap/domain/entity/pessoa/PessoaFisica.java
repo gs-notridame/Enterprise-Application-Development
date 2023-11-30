@@ -1,9 +1,8 @@
-package br.com.fiap.domain.entity;
+package br.com.fiap.domain.entity.pessoa;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "PF", uniqueConstraints = {

@@ -1,19 +1,10 @@
-package br.com.fiap.domain.entity;
+package br.com.fiap.domain.entity.endereco;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 @Entity
 @Table(name = "CIDADE")
 public class Cidade {
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
-    @JoinColumn(
-            name = "ESTADO",
-            referencedColumnName = "COD_ESTADO",
-            foreignKey = @ForeignKey(name = "FK_CIDADE_ESTADO")
-    )
-    private Estado estado;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CIDADE")
@@ -25,13 +16,22 @@ public class Cidade {
     @Column(name = "COD_IBGE")
     private Long codIbge;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(
+            name = "ESTADO",
+            referencedColumnName = "COD_ESTADO",
+            foreignKey = @ForeignKey(name = "FK_CIDADE_ESTADO")
+    )
+    private Estado estado;
+
     public Cidade() {
     }
 
-    public Cidade(Long codCidade, String nome, Long codIbge) {
+    public Cidade(Long codCidade, String nome, Long codIbge, Estado estado) {
         this.codCidade = codCidade;
         this.nome = nome;
         this.codIbge = codIbge;
+        this.estado = estado;
     }
 
     public Long getCodCidade() {
@@ -61,12 +61,22 @@ public class Cidade {
         return this;
     }
 
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public Cidade setEstado(Estado estado) {
+        this.estado = estado;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Cidade{" +
                 "codCidade=" + codCidade +
                 ", nome='" + nome + '\'' +
                 ", codIbge=" + codIbge +
+                ", estado=" + estado +
                 '}';
     }
 }

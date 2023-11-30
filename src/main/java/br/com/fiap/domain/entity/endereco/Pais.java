@@ -1,4 +1,4 @@
-package br.com.fiap.domain.entity;
+package br.com.fiap.domain.entity.endereco;
 
 import jakarta.persistence.*;
 
