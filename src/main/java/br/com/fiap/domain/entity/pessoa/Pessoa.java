@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "PESSOA")
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "TIPO")
 public class Pessoa {
 
     @Id
@@ -13,6 +12,7 @@ public class Pessoa {
     @SequenceGenerator(name = "SQ_PESSOA", sequenceName = "SQ_PESSOA", allocationSize = 1, initialValue = 1)
     @Column(name = "COD_PESSOA")
     private Long codPessoa;
+
     @Column(name = "NOME")
     private String nome;
     @Column(name = "EMAIL")
@@ -24,16 +24,24 @@ public class Pessoa {
     @Column(name = "SENHA")
     private String senha;
 
+    @Column(name = "TIPO")
+    private String tipo;
+
     public Pessoa() {
     }
 
-    public Pessoa(Long codPessoa, String nome, String email, Boolean softDelete, String usuario, String senha) {
+    public Pessoa(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Pessoa(Long codPessoa, String nome, String email, Boolean softDelete, String usuario, String senha, String tipo) {
         this.codPessoa = codPessoa;
         this.nome = nome;
         this.email = email;
         this.softDelete = softDelete;
         this.usuario = usuario;
         this.senha = senha;
+        this.tipo = tipo;
     }
 
     public Long getCodPessoa() {
@@ -90,6 +98,15 @@ public class Pessoa {
         return this;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public Pessoa setTipo(String tipo) {
+        this.tipo = tipo;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Pessoa{" +
@@ -99,6 +116,7 @@ public class Pessoa {
                 ", softDelete=" + softDelete +
                 ", usuario='" + usuario + '\'' +
                 ", senha='" + senha + '\'' +
+                ", tipo='" + tipo + '\'' +
                 '}';
     }
 }

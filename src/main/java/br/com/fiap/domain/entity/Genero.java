@@ -1,14 +1,11 @@
 package br.com.fiap.domain.entity;
 
-import br.com.fiap.domain.entity.pessoa.Pessoa;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "GENERO")
 public class Genero {
-    @OneToOne
-    @JoinColumn(name = "COD_PESSOA")
-    private Pessoa pessoa;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_GENERO")
     @SequenceGenerator(name = "SQ_GENERO", sequenceName = "SQ_GENERO", allocationSize = 1, initialValue = 1)

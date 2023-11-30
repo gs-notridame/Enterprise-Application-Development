@@ -7,14 +7,6 @@ import jakarta.persistence.*;
 @Table(name = "TELEFONE")
 public class Telefone {
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
-    @JoinColumn(
-            name = "PESSOA",
-            referencedColumnName = "COD_PESSOA",
-            foreignKey = @ForeignKey(name = "FK_TELEFONE_PESSOA")
-    )
-    private Pessoa pessoa;
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_TELEFONE")
     @SequenceGenerator(name = "SQ_TELEFONE", sequenceName = "SQ_TELEFONE", allocationSize = 1, initialValue = 1)
@@ -25,13 +17,22 @@ public class Telefone {
     @Column(name = "DDD")
     private Long ddd;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(
+            name = "PESSOA",
+            referencedColumnName = "COD_PESSOA",
+            foreignKey = @ForeignKey(name = "FK_TELEFONE_PESSOA")
+    )
+    private Pessoa pessoa;
+
     public Telefone() {
     }
 
-    public Telefone(Long codTelefone, Long numero, Long ddd) {
+    public Telefone(Long codTelefone, Long numero, Long ddd, Pessoa pessoa) {
         this.codTelefone = codTelefone;
         this.numero = numero;
         this.ddd = ddd;
+        this.pessoa = pessoa;
     }
 
     public Long getCodTelefone() {
@@ -61,12 +62,22 @@ public class Telefone {
         return this;
     }
 
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public Telefone setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Telefone{" +
                 "codTelefone=" + codTelefone +
                 ", numero=" + numero +
                 ", ddd=" + ddd +
+                ", pessoa=" + pessoa +
                 '}';
     }
 }

@@ -1,5 +1,6 @@
 package br.com.fiap.domain.entity.pessoa;
 
+import br.com.fiap.domain.entity.Genero;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -8,7 +9,6 @@ import java.time.LocalDate;
 @Table(name = "PF", uniqueConstraints = {
         @UniqueConstraint( name = "UK_PF_CPF", columnNames = "CPF")
 })
-@DiscriminatorValue("PF")
 public class PessoaFisica extends Pessoa {
 
     @Column(name = "DATA_NASC")
@@ -16,13 +16,19 @@ public class PessoaFisica extends Pessoa {
     @Column(name = "CPF")
     private String cpf;
 
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "GENERO", referencedColumnName = "COD_GENERO", foreignKey = @ForeignKey(name = "FK_PF_GENERO"))
+    private Genero genero;
+
     public PessoaFisica() {
+        super("PF");
     }
 
-    public PessoaFisica(Long codPessoa, String nome, String email, Boolean softDelete, String usuario, String senha, Long codPf, LocalDate dataNasc, String cpf) {
-        super(codPessoa, nome, email, softDelete, usuario, senha);
+    public PessoaFisica(Long codPessoa, String nome, String email, Boolean softDelete, String usuario, String senha, String tipo, LocalDate dataNasc, String cpf, Genero genero) {
+        super(codPessoa, nome, email, softDelete, usuario, senha, tipo);
         this.dataNasc = dataNasc;
         this.cpf = cpf;
+        this.genero = genero;
     }
 
     public LocalDate getDataNasc() {
@@ -43,11 +49,21 @@ public class PessoaFisica extends Pessoa {
         return this;
     }
 
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public PessoaFisica setGenero(Genero genero) {
+        this.genero = genero;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "PessoaFisica{" +
-                ", dataNasc=" + dataNasc +
+                "dataNasc=" + dataNasc +
                 ", cpf='" + cpf + '\'' +
+                ", genero=" + genero +
                 "} " + super.toString();
     }
 }

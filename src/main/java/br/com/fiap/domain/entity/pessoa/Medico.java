@@ -1,8 +1,6 @@
-package br.com.fiap.domain.entity;
+package br.com.fiap.domain.entity.pessoa;
 
 import jakarta.persistence.*;
-
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "MEDICO")
@@ -15,11 +13,17 @@ public class Medico {
     @Column(name = "CRP")
     private String crp;
 
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "PESSOA", referencedColumnName = "COD_PESSOA", foreignKey = @ForeignKey(name = "fk_paciente_pessoa"))
+    private PessoaFisica pessoa;
+
     public Medico() {
     }
-    public Medico(Long codMedico, String crp) {
+
+    public Medico(Long codMedico, String crp, PessoaFisica pessoa) {
         this.codMedico = codMedico;
         this.crp = crp;
+        this.pessoa = pessoa;
     }
 
     public Long getCodMedico() {
@@ -40,11 +44,21 @@ public class Medico {
         return this;
     }
 
+    public PessoaFisica getPessoa() {
+        return pessoa;
+    }
+
+    public Medico setPessoa(PessoaFisica pessoa) {
+        this.pessoa = pessoa;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Medico{" +
                 "codMedico=" + codMedico +
                 ", crp='" + crp + '\'' +
+                ", pessoa=" + pessoa +
                 '}';
     }
 }

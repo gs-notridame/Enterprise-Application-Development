@@ -1,9 +1,8 @@
 package br.com.fiap.domain.entity;
+import br.com.fiap.domain.entity.pessoa.Medico;
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 import java.sql.Time;
 
 @Entity

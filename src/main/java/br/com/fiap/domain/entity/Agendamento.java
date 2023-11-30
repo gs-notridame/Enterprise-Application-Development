@@ -1,9 +1,9 @@
 package br.com.fiap.domain.entity;
 
+import br.com.fiap.domain.entity.pessoa.Paciente;
 import jakarta.persistence.*;
 import java.sql.Time;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "AGENDAMENTO")

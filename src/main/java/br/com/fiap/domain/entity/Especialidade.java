@@ -1,8 +1,8 @@
 package br.com.fiap.domain.entity;
 
+import br.com.fiap.domain.entity.pessoa.Medico;
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 @Entity
 @Table(name = "ESPECIALIDADE")
 public class Especialidade {
