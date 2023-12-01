@@ -1,6 +1,6 @@
-package br.com.fiap.domain.entity;
+package br.com.psycheck.domain.entity;
 
-import br.com.fiap.domain.entity.pessoa.Paciente;
+import br.com.psycheck.domain.entity.pessoa.Paciente;
 import jakarta.persistence.*;
 import java.sql.Time;
 import java.time.LocalDate;
@@ -8,14 +8,6 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "AGENDAMENTO")
 public class Agendamento {
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
-    @JoinColumn(
-            name = "PACIENTE",
-            referencedColumnName = "COD_PACIENTE",
-            foreignKey = @ForeignKey(name = "FK_AGENDAMENTO_PACIENTE")
-    )
-    private Paciente paciente;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_AGENDAMENTO")
@@ -31,16 +23,33 @@ public class Agendamento {
     @Column(name = "OBSERVACOES")
     private String observacoes;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(
+            name = "PACIENTE",
+            referencedColumnName = "COD_PACIENTE",
+            foreignKey = @ForeignKey(name = "FK_AGENDAMENTO_PACIENTE")
+    )
+    private Paciente paciente;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(
+            name = "AGENDA_MEDICO",
+            referencedColumnName = "COD_AGENDA_MEDICO",
+            foreignKey = @ForeignKey(name = "FK_AGENDAMENTO_AGENDA_MEDICO")
+    )
+    private AgendaMedico agendaMedico;
 
     public Agendamento() {
     }
 
-    public Agendamento(Long codAgendamento, LocalDate dataAgendamento, Time horaAgendamento, String status, String observacoes) {
+    public Agendamento(Long codAgendamento, LocalDate dataAgendamento, Time horaAgendamento, String status, String observacoes, Paciente paciente, AgendaMedico agendaMedico) {
         this.codAgendamento = codAgendamento;
         this.dataAgendamento = dataAgendamento;
         this.horaAgendamento = horaAgendamento;
         this.status = status;
         this.observacoes = observacoes;
+        this.paciente = paciente;
+        this.agendaMedico = agendaMedico;
     }
 
     public Long getCodAgendamento() {
@@ -88,6 +97,24 @@ public class Agendamento {
         return this;
     }
 
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public Agendamento setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+        return this;
+    }
+
+    public AgendaMedico getAgendaMedico() {
+        return agendaMedico;
+    }
+
+    public Agendamento setAgendaMedico(AgendaMedico agendaMedico) {
+        this.agendaMedico = agendaMedico;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Agendamento{" +
@@ -96,6 +123,8 @@ public class Agendamento {
                 ", horaAgendamento=" + horaAgendamento +
                 ", status='" + status + '\'' +
                 ", observacoes='" + observacoes + '\'' +
+                ", paciente=" + paciente +
+                ", agendaMedico=" + agendaMedico +
                 '}';
     }
 }

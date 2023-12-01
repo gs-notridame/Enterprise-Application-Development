@@ -1,19 +1,13 @@
-package br.com.fiap.domain.entity;
+package br.com.psycheck.domain.entity;
 
-import br.com.fiap.domain.entity.pessoa.Medico;
+import br.com.psycheck.domain.entity.pessoa.Medico;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "ESPECIALIDADE")
 public class Especialidade {
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
-    @JoinColumn(
-            name = "MEDICO",
-            referencedColumnName = "COD_MEDICO",
-            foreignKey = @ForeignKey(name = "FK_ESPECIALIDADE_MEDICO")
-    )
-    private Medico medico;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ESPECIALIDADE")
@@ -23,12 +17,21 @@ public class Especialidade {
     @Column(name = "ESPECIALIDADE")
     private String especialidae;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(
+            name = "MEDICO",
+            referencedColumnName = "COD_MEDICO",
+            foreignKey = @ForeignKey(name = "FK_ESPECIALIDADE_MEDICO")
+    )
+    private Medico medico;
+
     public Especialidade() {
     }
 
-    public Especialidade(Long codEspecialidade, String especialidae) {
+    public Especialidade(Long codEspecialidade, String especialidae, Medico medico) {
         this.codEspecialidade = codEspecialidade;
         this.especialidae = especialidae;
+        this.medico = medico;
     }
 
     public Long getCodEspecialidade() {
@@ -49,11 +52,21 @@ public class Especialidade {
         return this;
     }
 
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public Especialidade setMedico(Medico medico) {
+        this.medico = medico;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Especialidade{" +
                 "codEspecialidade=" + codEspecialidade +
                 ", especialidae='" + especialidae + '\'' +
+                ", medico=" + medico +
                 '}';
     }
 }

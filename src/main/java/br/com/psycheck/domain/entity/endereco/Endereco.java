@@ -1,6 +1,6 @@
-package br.com.fiap.domain.entity.endereco;
+package br.com.psycheck.domain.entity.endereco;
 
-import br.com.fiap.domain.entity.pessoa.Pessoa;
+import br.com.psycheck.domain.entity.pessoa.Pessoa;
 import jakarta.persistence.*;
 
 @Entity

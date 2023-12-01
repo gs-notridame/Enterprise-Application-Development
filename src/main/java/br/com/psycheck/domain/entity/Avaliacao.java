@@ -1,5 +1,5 @@
-package br.com.fiap.domain.entity;
-import br.com.fiap.domain.entity.pessoa.Medico;
+package br.com.psycheck.domain.entity;
+import br.com.psycheck.domain.entity.pessoa.Medico;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -7,14 +7,6 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "AVALIACAO")
 public class Avaliacao {
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
-    @JoinColumn(
-            name = "MEDICO",
-            referencedColumnName = "COD_MEDICO",
-            foreignKey = @ForeignKey(name = "FK_AVALIACAO_MEDICO")
-    )
-    private Medico medico;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_AVALIACAO")
@@ -28,14 +20,23 @@ public class Avaliacao {
     @Column(name = "DATA")
     private LocalDate data;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(
+            name = "MEDICO",
+            referencedColumnName = "COD_MEDICO",
+            foreignKey = @ForeignKey(name = "FK_AVALIACAO_MEDICO")
+    )
+    private Medico medico;
+
     public Avaliacao() {
     }
 
-    public Avaliacao(Long codAvaliacao, Long nota, String comentario, LocalDate data) {
+    public Avaliacao(Long codAvaliacao, Long nota, String comentario, LocalDate data, Medico medico) {
         this.codAvaliacao = codAvaliacao;
         this.nota = nota;
         this.comentario = comentario;
         this.data = data;
+        this.medico = medico;
     }
 
     public Long getCodAvaliacao() {
@@ -74,6 +75,15 @@ public class Avaliacao {
         return this;
     }
 
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public Avaliacao setMedico(Medico medico) {
+        this.medico = medico;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Avaliacao{" +
@@ -81,6 +91,7 @@ public class Avaliacao {
                 ", nota=" + nota +
                 ", comentario='" + comentario + '\'' +
                 ", data=" + data +
+                ", medico=" + medico +
                 '}';
     }
 }

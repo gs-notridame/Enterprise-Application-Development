@@ -1,20 +1,19 @@
-package br.com.fiap.domain.entity.pessoa;
+package br.com.psycheck.domain.entity.pessoa;
 
-import br.com.fiap.domain.entity.Genero;
+import br.com.psycheck.domain.entity.Genero;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "PF", uniqueConstraints = {
-        @UniqueConstraint( name = "UK_PF_CPF", columnNames = "CPF")
-})
 public class PessoaFisica extends Pessoa {
+
+
+    @Column(name = "CPF")
+    private String cpf;
 
     @Column(name = "DATA_NASC")
     private LocalDate dataNasc;
-    @Column(name = "CPF")
-    private String cpf;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "GENERO", referencedColumnName = "COD_GENERO", foreignKey = @ForeignKey(name = "FK_PF_GENERO"))

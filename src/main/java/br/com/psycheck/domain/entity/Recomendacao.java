@@ -1,20 +1,10 @@
-package br.com.fiap.domain.entity;
+package br.com.psycheck.domain.entity;
 
 import jakarta.persistence.*;
-
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "RECOMENDACAO")
 public class Recomendacao {
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
-    @JoinColumn(
-            name = "DIAGNOSTICO",
-            referencedColumnName = "COD_DIAGNOSTICO",
-            foreignKey = @ForeignKey(name = "FK_RECOMENDACAO_DIAGNOSTICO")
-    )
-    private Diagnostico diagnostico;
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_RECOMENDACAO")
     @SequenceGenerator(name = "SQ_RECOMENDACAO", sequenceName = "SQ_RECOMENDACAO", allocationSize = 1, initialValue = 1)
@@ -23,12 +13,21 @@ public class Recomendacao {
     @Column(name = "RECOMENDACAO")
     private String recomendacao;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @JoinColumn(
+            name = "DIAGNOSTICO",
+            referencedColumnName = "COD_DIAGNOSTICO",
+            foreignKey = @ForeignKey(name = "FK_RECOMENDACAO_DIAGNOSTICO")
+    )
+    private Diagnostico diagnostico;
+
     public Recomendacao() {
     }
 
-    public Recomendacao(Long codRecomendacao, String recomendacao) {
+    public Recomendacao(Long codRecomendacao, String recomendacao, Diagnostico diagnostico) {
         this.codRecomendacao = codRecomendacao;
         this.recomendacao = recomendacao;
+        this.diagnostico = diagnostico;
     }
 
     public Long getCodRecomendacao() {
@@ -49,11 +48,21 @@ public class Recomendacao {
         return this;
     }
 
+    public Diagnostico getDiagnostico() {
+        return diagnostico;
+    }
+
+    public Recomendacao setDiagnostico(Diagnostico diagnostico) {
+        this.diagnostico = diagnostico;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Recomendacao{" +
                 "codRecomendacao=" + codRecomendacao +
                 ", recomendacao='" + recomendacao + '\'' +
+                ", diagnostico=" + diagnostico +
                 '}';
     }
 }

@@ -1,11 +1,9 @@
-package br.com.fiap.domain.entity;
+package br.com.psycheck.domain.entity;
 
 import jakarta.persistence.*;
 
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "QUESTIONARIO")

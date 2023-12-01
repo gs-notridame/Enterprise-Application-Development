@@ -1,4 +1,4 @@
-package br.com.fiap.domain.entity.endereco;
+package br.com.psycheck.domain.entity.endereco;
 
 import jakarta.persistence.*;
 

@@ -1,4 +1,4 @@
-package br.com.fiap.domain.entity.pessoa;
+package br.com.psycheck.domain.entity.pessoa;
 
 import jakarta.persistence.*;
 
@@ -14,7 +14,7 @@ public class Medico {
     private String crp;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "PESSOA", referencedColumnName = "COD_PESSOA", foreignKey = @ForeignKey(name = "fk_paciente_pessoa"))
+    @JoinColumn(name = "PESSOA", referencedColumnName = "COD_PESSOA", foreignKey = @ForeignKey(name = "fk_medico_pessoa"))
     private PessoaFisica pessoa;
 
     public Medico() {

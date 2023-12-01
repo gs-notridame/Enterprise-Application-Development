@@ -1,6 +1,6 @@
-package br.com.fiap.domain.entity;
+package br.com.psycheck.domain.entity;
 
-import br.com.fiap.domain.entity.pessoa.Pessoa;
+import br.com.psycheck.domain.entity.pessoa.Pessoa;
 import jakarta.persistence.*;
 
 @Entity
@@ -21,7 +21,7 @@ public class Telefone {
     @JoinColumn(
             name = "PESSOA",
             referencedColumnName = "COD_PESSOA",
-            foreignKey = @ForeignKey(name = "FK_TELEFONE_PESSOA")
+            foreignKey = @ForeignKey(name = "FK_TEL_PESSOA")
     )
     private Pessoa pessoa;
 
