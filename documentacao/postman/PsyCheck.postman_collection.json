@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "5de4c441-f22b-4774-9022-1c6ea1f1060a",
+		"name": "PsyCheck",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29945995"
+	},
+	"item": [
+		{
+			"name": "getPacientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/paciente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"paciente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPacientePorId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/paciente/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"paciente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criação de Paciente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"historico\": \"Histórico do paciente\",\r\n    \"numSeguroSaude\": \"1234567890\",\r\n    \"pessoa\": {\r\n        \"nome\": \"Gabriel\",\r\n        \"email\": \"paciente@example.com\",\r\n        \"softDelete\": false,\r\n        \"usuario\": \"usuario_paciente\",\r\n        \"senha\": \"senha123\",\r\n        \"dataNasc\": \"1990-01-01\",\r\n        \"cpf\": \"12345678901\",\r\n        \"genero\": {\r\n            \"genero\": \"MASCULINO\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/paciente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"paciente"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

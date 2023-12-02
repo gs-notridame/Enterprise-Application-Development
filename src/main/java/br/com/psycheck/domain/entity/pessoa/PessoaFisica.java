@@ -8,7 +8,6 @@ import java.time.LocalDate;
 @Entity
 public class PessoaFisica extends Pessoa {
 
-
     @Column(name = "CPF")
     private String cpf;
 
@@ -23,8 +22,8 @@ public class PessoaFisica extends Pessoa {
         super("PF");
     }
 
-    public PessoaFisica(Long codPessoa, String nome, String email, Boolean softDelete, String usuario, String senha, String tipo, LocalDate dataNasc, String cpf, Genero genero) {
-        super(codPessoa, nome, email, softDelete, usuario, senha, tipo);
+    public PessoaFisica(Long codPessoa, String nome, String email, Boolean softDelete, String usuario, String senha, LocalDate dataNasc, String cpf, Genero genero) {
+        super(codPessoa, nome, email, softDelete, usuario, senha, "PF");
         this.dataNasc = dataNasc;
         this.cpf = cpf;
         this.genero = genero;

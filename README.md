@@ -80,6 +80,72 @@ Facilitando a colaboração entre usuários e profissionais de saúde, o PsyChec
 
 O Projeto PsyCheck ilustra como a inovação tecnológica pode transformar a abordagem aos desafios de saúde mental. Ao integrar inteligência artificial, chatbots e análise de dados, o aplicativo oferece uma solução abrangente que não apenas aborda os sintomas, mas também trabalha na prevenção e colaboração. O potencial impacto positivo na sociedade destaca a importância de soluções criativas e tecnologicamente avançadas na melhoria da saúde mental.
 
+### Escopo do projeto de desenvolvimento;
+
+Desenvolvimento da Plataforma Web:
+
+Implementação do front-end e back-end do PsyCheck, proporcionando uma interface intuitiva e funcional para os usuários.
+
+Algoritmo de Diagnóstico Automático:
+
+Desenvolvimento e integração de algoritmos avançados de inteligência artificial para realizar avaliações dinâmicas e personalizadas.
+
+Sistema de Relatórios Personalizados:
+
+Criação de um sistema que gera relatórios detalhados e compreensíveis, refletindo os resultados das avaliações.
+
+Conexão com Profissionais de Saúde Mental:
+
+Implementação de um sistema de comunicação seguro que conecta os usuários a uma rede de psicólogos qualificados para suporte personalizado.
+
+Garantia de Privacidade e Segurança:
+
+Implementação de medidas robustas para garantir a confidencialidade e segurança das interações e dados dos usuários.
+
+Testes e Ajustes:
+
+Realização de testes extensivos para garantir a eficácia, segurança e usabilidade da plataforma, com ajustes conforme necessário.
+
+### O que ficará fora do Escopo;
+
+Atendimento de Emergência:
+
+O PsyCheck não substitui serviços de emergência. Casos de crise devem ser encaminhados para profissionais de saúde imediatamente.
+
+Prescrição de Medicamentos:
+
+O PsyCheck não incluirá a prescrição de medicamentos. Os usuários serão aconselhados a procurar um profissional de saúde para orientações nesse sentido.
+
+Serviços de Terapia em Tempo Real:
+
+Embora conecte usuários a psicólogos, o PsyCheck não oferece terapia em tempo real. A plataforma é focada em avaliações e suporte personalizado.
+
+### Lista de tecnologias utilizadas e versão;
+
+Front-end:
+
+React Native
+Type Script
+
+Back-end:
+
+Java (Spring + JPA + Hibernate)
+Python
+
+Banco de Dados:
+
+SQL Oracle
+
+Inteligência Artificial:
+
+Pyhton
+TensorFlow (Keras)
+RoboFlow
+
+Plataforma de Hospedagem:
+
+Microsoft Azure
+
 <a id="_fluxograma_"></a>
 
 # Fluxograma da Arquitetura do Sistema
@@ -135,4 +201,4 @@ p.s. é necessário ter a jdk versão 17 instalada em sua máquina ou podem acon
 
 ## Para mais detalhes assista ao nosso Picth:
 
-[![Alt text](https://img.youtube.com/vi/iyOTlpfnWXU/0.jpg)](https://www.youtube.com/watch?v=iyOTlpfnWXU)
+[![Alt text](https://img.youtube.com/vi/5Qvdya6ijFY/0.jpg)](https://www.youtube.com/watch?v=5Qvdya6ijFY)
